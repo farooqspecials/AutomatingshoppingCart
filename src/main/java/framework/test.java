@@ -2,6 +2,9 @@ package framework;
 
 import org.openqa.selenium.WebDriver;
 
+import drivers.DriverSingleton;
+import utils.FrameworkProperties;
+
 public class test {
 
 	public static void main(String[] args) {
