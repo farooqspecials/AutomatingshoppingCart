@@ -3,6 +3,7 @@ package framework;
 import org.openqa.selenium.WebDriver;
 
 import drivers.DriverSingleton;
+import pages.HomePage;
 import utils.FrameworkProperties;
 
 public class test {
@@ -12,7 +13,11 @@ public class test {
 		FrameworkProperties frameworkProperties = new FrameworkProperties();
         DriverSingleton.getInstance(frameworkProperties.getProperty("browser"));
         WebDriver driver = DriverSingleton.getDriver();
-        driver.get("http://www.automationpractice.pl/index.php");
+        driver.get("https://automationexercise.com");
+        
+        HomePage homePage = new HomePage();
+        homePage.addFirstElementToCart();
+        homePage.addSecondElementToCart();
 	}
 
 }
