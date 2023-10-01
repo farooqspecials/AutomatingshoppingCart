@@ -38,11 +38,29 @@ public class HomePage {
 
 	    @FindBy(css = "#header > div > div > div > div.col-sm-8 > div > ul > li:nth-child(3) > a")
 	    private WebElement cart;
+	    
+	    //sign in on home page
+	   // 
+	    
+	    @FindBy(css = "#header > div > div > div > div.col-sm-8 > div > ul > li:nth-child(4) > a")
+	    private WebElement signIn;
 
-	    //proceed to check out button on pop up box
-	 //   @FindBy(css = "#layer_cart > div.clearfix > div.layer_cart_cart.col-xs-12.col-md-6 > div.button-container > a")
-	   // private WebElement proceedToCheckoutButton;
-
+	  
+	    @FindBy(css = "#form > div > div > div.col-sm-4.col-sm-offset-1 > div > form > input[type=email]:nth-child(2)")
+	    private WebElement username;
+	    
+	    
+	    @FindBy(css = "#form > div > div > div.col-sm-4.col-sm-offset-1 > div > form > input[type=password]:nth-child(3)")
+	    private WebElement password;
+	   
+	    
+	    @FindBy(css = "#form > div > div > div.col-sm-4.col-sm-offset-1 > div > form > button")
+	    private WebElement lgnBtn;
+	    
+	    
+	    @FindBy(css = "#header > div > div > div > div.col-sm-8 > div > ul > li:nth-child(10) > a > b")
+	    private WebElement nameassert;
+	    
 	    // continue to checkout button on pop up box
 	    @FindBy(css = "#cartModal > div > div > div.modal-footer > button")
 	    private WebElement continueShoppingButton;
@@ -55,6 +73,24 @@ public class HomePage {
 	    private WebElement secondElement;
 	    
 	    
+	    public void signIn() {
+	    	signIn.click();
+	    	  	
+	    }
+	    
+	    public void clickSignIn(String Username, String Password) {
+	    	signIn.click();
+	    	username.sendKeys(Username);
+	        password.sendKeys(Password);
+	        lgnBtn.click();
+	    	
+	    }
+	    
+	    public String getUsername() {
+	    	return nameassert.getText();
+	    }
+	    
+	    
 	    public void addFirstElementToCart(){
 	       // Actions hover = new Actions(driver);
 	     //   hover.moveToElement(firstElement).build().perform();
@@ -63,7 +99,8 @@ public class HomePage {
 		         // actions.moveToElement(firstElement).build();
 		         // actions.perform();
 	    	JavascriptExecutor jse= (JavascriptExecutor) driver;
-	    	jse.executeScript("arguments[0].scrollIntoView()", addToCartFirst);
+	    	//jse.executeScript("arguments[0].scrollIntoView()", addToCartFirst);
+	    	jse.executeScript("arguments[0].scrollIntoView()", firstElement);
 	    	
 	    	
 	    	 Actions actions = new Actions(driver);

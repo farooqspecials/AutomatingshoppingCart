@@ -66,6 +66,11 @@ public class CheckoutPage {
     private WebElement submitButton;
     
     
+    
+    @FindBy(css = ".title > b:nth-child(1)")
+    private WebElement order;
+    
+    
     @FindBy(css = ".title > b:nth-child(1)")
     private WebElement orderStatus;
     
@@ -116,6 +121,12 @@ public class CheckoutPage {
     	
     	
     }
+ 
+ public String orderstatus() {
+	 
+	 return order.getText();
+	 
+ }
  
 
 
