@@ -44,7 +44,7 @@ public class Tests {
 	 @Test 
 	 public void orderplaced() throws InterruptedException {
 		 //This is working without Junit seet test.java. but not working with Junit.. no idea why.
-		 
+		    driver.get(Constants.URL);
 		 	homePage.addFirstElementToCart();
 	        homePage.addSecondElementToCart();
 	        
@@ -54,7 +54,7 @@ public class Tests {
 	        
 	        checkoutPage.confirmCard("Farooq", "4108900120083005", "045", "05", "2022");
 	        
-	        assertEquals("Order Placed!", checkoutPage.orderstatus());
+	        assertEquals("ORDER PLACED!", checkoutPage.orderstatus());
 	        
 	 }
 	 @AfterClass
